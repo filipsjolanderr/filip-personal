@@ -2,6 +2,7 @@ import { Icon } from '@/components/icon';
 import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { type ComponentPropsWithoutRef } from 'react';
+import AppearanceDropdownSidebar from './appearance-dropdown-sidebar';
 
 export function NavFooter({
     items,
@@ -27,6 +28,7 @@ export function NavFooter({
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     ))}
+                    <AppearanceDropdownSidebar />
                 </SidebarMenu>
             </SidebarGroupContent>
         </SidebarGroup>

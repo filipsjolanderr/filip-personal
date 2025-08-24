@@ -12,6 +12,11 @@ export function NavUser() {
     const { state } = useSidebar();
     const isMobile = useIsMobile();
 
+    // If no user is logged in, don't render the user menu
+    if (!auth.user) {
+        return null;
+    }
+
     return (
         <SidebarMenu>
             <SidebarMenuItem>

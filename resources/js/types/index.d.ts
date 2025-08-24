@@ -2,7 +2,7 @@ import { LucideIcon } from 'lucide-react';
 import type { Config } from 'ziggy-js';
 
 export interface Auth {
-    user: User;
+    user: User | null;
 }
 
 export interface BreadcrumbItem {
@@ -40,4 +40,44 @@ export interface User {
     created_at: string;
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
+}
+
+export interface BlogPost {
+    id: number;
+    title: string;
+    slug: string;
+    content: string;
+    markdown_content?: string;
+    excerpt?: string;
+    featured_image?: string;
+    is_published: boolean;
+    published_at: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface Project {
+    id: number;
+    title: string;
+    description: string;
+    markdown_content?: string;
+    technologies: string[];
+    image?: string;
+    live_url?: string;
+    github_url?: string;
+    is_featured: boolean;
+    sort_order: number;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface CV {
+    id: number;
+    title: string;
+    content?: string;
+    markdown_content?: string;
+    file_path?: string;
+    is_active: boolean;
+    created_at: string;
+    updated_at: string;
 }

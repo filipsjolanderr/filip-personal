@@ -21,8 +21,22 @@ const breadcrumbs: BreadcrumbItem[] = [
 export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
     const { auth } = usePage<SharedData>().props;
 
+    // If no user is logged in, don't render the profile form
+    if (!auth.user) {
+        return (
+            <AppLayout breadcrumbs={breadcrumbs} variant="sidebar">
+                <Head title="Profile settings" />
+                <SettingsLayout>
+                    <div className="text-center py-16">
+                        <p className="text-lg text-muted-foreground">Please log in to access your profile settings.</p>
+                    </div>
+                </SettingsLayout>
+            </AppLayout>
+        );
+    }
+
     return (
-        <AppLayout breadcrumbs={breadcrumbs}>
+        <AppLayout breadcrumbs={breadcrumbs} variant="sidebar">
             <Head title="Profile settings" />
 
             <SettingsLayout>
