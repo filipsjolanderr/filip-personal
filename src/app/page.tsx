@@ -7,19 +7,16 @@ export default function Home() {
   return (
     <div>
       <header {...stylex.props(styles.header)}>
-        <Logo style={styles.logo} collapsible />
+        <Logo style={styles.logo} src="/logo-expanded-2.svg" />
         <nav {...stylex.props(styles.nav)}>
           <Link {...stylex.props(styles.navLink)} href="/blog">
             Blog
           </Link>
-          <Link {...stylex.props(styles.navLink)} href="/talks">
-            Talks
-          </Link>
-          <Link {...stylex.props(styles.navLink)} href="/media">
-            Media
-          </Link>
           <Link {...stylex.props(styles.navLink)} href="/projects">
             Projects
+          </Link>
+          <Link {...stylex.props(styles.navLink)} href="/resume">
+            Resume
           </Link>
         </nav>
       </header>
@@ -47,9 +44,13 @@ const styles = stylex.create({
     margin: 0,
   },
   logo: {
-    maxWidth: 800,
+    height: {
+      default: "20rem",
+      "@media (max-width: 900px)": "10rem",
+      "@media (max-width: 480px)": "5rem",
+    },
+    maxWidth: "100%",
     transform: "translateX(1.5%)",
-    width: "calc(100% - 32px)",
   },
   nav: {
     display: "flex",
@@ -63,6 +64,5 @@ const styles = stylex.create({
     },
     textTransform: "uppercase",
     textUnderlineOffset: "8px",
-    width: "3.8rem",
   },
 });

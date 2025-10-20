@@ -6,8 +6,8 @@ import { Link } from "next-view-transitions";
 import Nav from "../components/Nav";
 
 export const metadata: Metadata = {
-  title: "Blog | Filip Sjölander",
-  description: "Longer form blog pasts and experiments.",
+  title: "Resume | Filip Sjölander",
+  description: "Resume of Filip Sjölander",
 };
 
 export default function RootLayout({
@@ -53,6 +53,6 @@ const styles = stylex.create({
   },
   main: {
     flexGrow: 1,
-    paddingInline: spacing.md,
+    paddingInline: spacing.sm,
   },
 });

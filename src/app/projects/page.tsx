@@ -12,29 +12,13 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "StyleX",
-    repo: "https://github.com/facebook/stylex",
+    name: "Matlåda?",
+    repo: "https://github.com/filipsjolanderr/matlada",
     description: `
-    Compile-time atomic CSS-in-JS for React and other component-based frameworks. Powers web apps at Meta, Figma and Snowflake.
+    A web app for sharing your weekly meal planning with your team.
     `.trim(),
     accent: colors.blue,
-  },
-  {
-    name: "stylextras",
-    repo: "https://github.com/nmn/stylextras",
-    description:
-      "Practical utilities and patterns that extend StyleX. Provides open-tokens and support for tailwind syntax and a system for bun-like macros.",
-    accent: colors.teal,
-  },
-  {
-    name: "Solenoid",
-    repo: "https://github.com/nmn/solenoid",
-    description:
-      `An experimental component framework that brings atomic compilation to Javascript. A server-first framwork with instant interactivity 
-    that uses a small set of primitives custom elements and signals to build applications whose logical flow can be encoded into the HTML itself. 
-    `.trim(),
-    accent: colors.mauve,
-  },
+  }
 ];
 
 export default function Projects() {

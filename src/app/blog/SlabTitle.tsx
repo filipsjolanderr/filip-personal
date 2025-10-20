@@ -118,7 +118,7 @@ export function Word({
 const styles = stylex.create({
   link: {
     display: 'block',
-    marginBottom: spacing.xxxxl,
+    marginBottom: spacing.xl,
     marginInline: 'auto',
     maxWidth: '54rem',
     outline: 'none',
@@ -134,7 +134,7 @@ const styles = stylex.create({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginBottom: spacing.xxxxl,
+    marginBottom: spacing.xl,
     marginInline: 'auto',
     maxWidth: '54rem',
     rowGap: 8,

@@ -1,9 +1,51 @@
-<svg width="683" height="418" viewBox="0 0 683 418" xmlns="http://www.w3.org/2000/svg">
-  <path d="M277.735 416.781L143 83.3762V0.638977L278 334.699V416.674L277.735 416.781Z" />
-  <path d="M547.735 417.142L413 83.7372V1L548 335.06V417.035L547.735 417.142Z" />
-  <path d="M278.265 417.142L413 83.7372V1L278 335.06V417.035L278.265 417.142Z" />
-  <path d="M548.265 416.142L683 82.7372V0L548 334.06V416.035L548.265 416.142Z" />
-  <path d="M8.26468 417.142L143 83.7372V1L8 335.06V417.035L8.26468 417.142Z" />
-  <path d="M285.215 256.007L0 256.16L12.5305 225.153L297.745 225L285.215 256.007Z" />
-  <path d="M575.215 256.007L290 256.16L302.531 225.153L587.745 225L575.215 256.007Z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="14.415001mm"
+   height="12.897mm"
+   viewBox="0 0 14.415001 12.897"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <g
+       id="layer1-7"
+       transform="translate(-15.875,-36.127651)">
+      <g
+         id="g2-1"
+         transform="translate(-15.781655,-42.821588)">
+        <text
+           xml:space="preserve"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93 Italic';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.275358"
+           x="28.603161"
+           y="60.92091"
+           id="text1-6"
+           transform="scale(0.97743379,1.0230872)"><tspan
+             id="tspan1-8"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';stroke-width:0.275358"
+             x="28.603161"
+             y="60.92091" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.370429;stroke-dasharray:none"
+           x="31.378069"
+           y="90.020576"
+           id="text1-8-5-9"
+           transform="scale(0.98530215,1.0149171)"><tspan
+             id="tspan1-2-7"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.370429;stroke-dasharray:none;stroke-opacity:1"
+             x="31.378069"
+             y="90.020576"><tspan
+               style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1"
+               id="tspan4-6">F</tspan><tspan
+               style="fill:#000000;fill-opacity:0;stroke:#ffffff;stroke-opacity:1"
+               id="tspan2-1">S</tspan></tspan></text>
+      </g>
+    </g>
+  </g>
 </svg>

@@ -6,7 +6,7 @@ import { Link } from "next-view-transitions";
 import Nav from "../components/Nav";
 
 export const metadata: Metadata = {
-  title: "Projects | Naman Goel",
+  title: "Projects | Filip Sjölander",
   description: "My various projects",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
     <>
       <header {...stylex.props(styles.header)}>
         <Link {...stylex.props(styles.logoLink)} href="/">
-          <Logo style={styles.logo} />
+          <Logo style={styles.logo} src="/logo-expanded.svg" />
         </Link>
         <Nav />
       </header>
@@ -30,9 +30,9 @@ export default function RootLayout({
 
 const styles = stylex.create({
   logoLink: {
-    visibility: {
-      default: null,
-      "@media (max-width: 600px)": "hidden",
+    display: {
+      default: "block",
+      "@media (max-width: 900px)": "none",
     },
   },
   header: {
@@ -44,7 +44,12 @@ const styles = stylex.create({
     padding: spacing.sm,
   },
   logo: {
-    width: 160,
+    height: {
+      default: "4rem",
+      "@media (max-width: 768px)": "3rem",
+      "@media (max-width: 480px)": "2.5rem",
+    },
+    maxWidth: "100%",
   },
   main: {
     flexGrow: 1,

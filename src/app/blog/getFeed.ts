@@ -3,15 +3,15 @@ import { getBlogPosts } from "./getPosts";
 import { unstable_cache } from "next/cache";
 
 export const getFeed = unstable_cache(async function getFeed() {
-  const siteURL = "https://nmn.sh";
+  const siteURL = "https://sjolander.dev";
   const feedOptions = {
     title: "nmn.sh",
     language: "en",
     id: siteURL,
     link: siteURL,
-    description: "Naman Goel's blog",
+    description: "Filip Sjölander's blog",
     // image: `${siteURL}/og.png`,
-    copyright: `All rights reserved ${new Date().getFullYear()}, Naman Goel`,
+    copyright: `All rights reserved ${new Date().getFullYear()}, Filip Sjölander`,
     author: {
       name: "Naman Goel",
       link: `${siteURL}/blog`,

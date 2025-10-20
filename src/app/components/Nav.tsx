@@ -9,14 +9,11 @@ export function Nav() {
       <Link {...stylex.props(styles.navLink)} href="/blog">
         Blog
       </Link>
-      <Link {...stylex.props(styles.navLink)} href="/talks">
-        Talks
-      </Link>
-      <Link {...stylex.props(styles.navLink)} href="/media">
-        Media
-      </Link>
       <Link {...stylex.props(styles.navLink)} href="/projects">
         Projects
+      </Link>
+      <Link {...stylex.props(styles.navLink)} href="/resume">
+        Resume
       </Link>
     </nav>
   );

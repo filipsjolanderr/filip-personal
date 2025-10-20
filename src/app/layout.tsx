@@ -4,13 +4,10 @@ import { colors, fonts, spacing } from "./vars.stylex";
 import ThemeControl from "./ThemeControl";
 import "./app.css";
 import { ViewTransitions } from "next-view-transitions";
-import BlueskyLogo from "./components/icons/bluesky";
-import TwitterLogo from "./components/icons/twitter";
-import MastodonLogo from "./components/icons/mastodon";
 
 export const metadata: Metadata = {
-  title: "Naman Goel",
-  description: "Personal website and blog of Naman Goel.",
+  title: "Filip Sjölander",
+  description: "Personal website and blog of Filip Sjölander.",
 };
 
 export default function RootLayout({
@@ -20,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html {...stylex.props(styles.html)} lang="en">
+      <html {...stylex.props(styles.html)} lang="en"> 
         <head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
@@ -57,29 +54,6 @@ export default function RootLayout({
         <ThemeControl style={styles.body}>
           {children}
           <footer {...stylex.props(styles.footer)}>
-            <div {...stylex.props(styles.footerLogos)}>
-              <a
-                href="https://bsky.app/profile/nmn.bsky.social"
-                target="_blank"
-                {...stylex.props(styles.logoLink)}
-              >
-                <BlueskyLogo style={styles.footerLogo} />
-              </a>
-              <a
-                href="https://x.com/naman34"
-                target="_blank"
-                {...stylex.props(styles.logoLink)}
-              >
-                <TwitterLogo style={styles.footerLogo} />
-              </a>
-              <a
-                href="https://indieweb.social/@nmn"
-                target="_blank"
-                {...stylex.props(styles.logoLink)}
-              >
-                <MastodonLogo style={styles.footerLogo} />
-              </a>
-            </div>
             <div>All Rights Reserved.</div>
           </footer>
         </ThemeControl>
