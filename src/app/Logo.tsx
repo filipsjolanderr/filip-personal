@@ -32,6 +32,7 @@ const styles = stylex.create({
     width: "auto",
   },
   logoImage: {
+    filter: "var(--logo-filter)",
     height: "100%",
     objectFit: "contain",
     width: "100%",

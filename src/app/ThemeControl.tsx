@@ -76,9 +76,21 @@ const styles = stylex.create({
 });
 
 const themes = stylex.create({
-  dark: { colorScheme: "dark" },
-  light: { colorScheme: "light" },
-  system: { colorScheme: "light dark" },
+  dark: { 
+    colorScheme: "dark",
+    // eslint-disable-next-line @stylexjs/valid-styles
+    "--logo-filter": "invert(0)",
+  },
+  light: { 
+    colorScheme: "light",
+    // eslint-disable-next-line @stylexjs/valid-styles
+    "--logo-filter": "invert(1)",
+  },
+  system: { 
+    colorScheme: "light dark",
+    // eslint-disable-next-line @stylexjs/valid-styles
+    "--logo-filter": "light-dark(invert(1), invert(0))",
+  },
 });
 
 type Props = {
