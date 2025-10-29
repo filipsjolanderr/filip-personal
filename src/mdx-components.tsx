@@ -359,6 +359,28 @@ export function InlineCode({
   return <code {...stylex.props(styles.inlineCode, xstyle)} {...props} />;
 }
 
+export function Cite({
+  xstyle,
+  href,
+  id,
+  title,
+  ...props
+}: WithStyles<HTMLElement> & { href: string; id: string | number; title?: string }) {
+  return (
+    <sup {...stylex.props(styles.cite, xstyle)} {...props}>
+      <a
+        {...stylex.props(styles.citeLink)}
+        href={href}
+        rel="noopener noreferrer nofollow"
+        target="_blank"
+        title={title}
+      >
+        [{id}]
+      </a>
+    </sup>
+  );
+}
+
 export function IFrame({
   xstyle,
   height,
@@ -496,6 +518,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     em: Em,
     img: Img,
     details: Details,
+    Cite,
   };
 }
 
@@ -730,6 +753,17 @@ const styles = stylex.create({
     textDecorationSkipInk: "all",
     textDecorationThickness: "2px",
     textUnderlineOffset: "3px",
+  },
+  cite: {
+    fontSize: '0.8em',
+    lineHeight: 1,
+    marginInlineStart: 2,
+    verticalAlign: 'super',
+  },
+  citeLink: {
+    color: colors.overlay1,
+    textDecoration: 'none',
+    ':hover': { color: colors.blue, textDecoration: 'underline' },
   },
   strong: { color: colors.teal },
   em: { color: colors.peach },

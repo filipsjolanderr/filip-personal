@@ -1,0 +1,103 @@
+export const metadata = {
+  title: "Snapchat Memories Backuper",
+  date: "2025-10-29",
+  author: "Filip Sjölander",
+  published: true,
+  tags: ["website"],
+  description: "break free from snapchat memories before they make you pay",
+};
+
+import { Container, Word } from "@/app/blog/SlabTitle";
+
+<Container path="/blog/2025-10-29-snapchat-memories-backuper">
+  <Word scale={155}>Snapchat</Word>
+  <Word scale={108} italic>
+    {"Memories"}
+  </Word>
+  <Word scale={152}>Backuper</Word>
+</Container>
+
+News broke earlier this month: **Snap's have decided to start charging for Memories storage**<Cite id="1" href="https://www.bbc.com/news/articles/c4g5ypl6nkzo" title="Snapchat users share fury at upcoming fees for storing old photos and videos - 7 Oct 2025" />. Users with more than 5 GB of saved Snaps would soon have to pay to keep them stored online.  
+And for many, that hit a nerve.
+
+> Half of my life is on this app and now they expect us to pay for it.
+
+Those words summed up a familiar kind of digital betrayal. People had trusted the platform to hold their history: birthdays, graduations, quiet nights, moments that outlived disappearing messages. Now, that archive was being locked behind a price tag.
+
+### The Problem
+
+Snapchat _does_ allow users to **download their Memories**, but the exported data comes in a HTML links that require manual downloads, one by one. Hardly user‑friendly for people with tens of gigabytes of memories spanning a decade.
+
+When you actually download those files, you get this mix:
+
+- Thousands of `.zip`, `.mp4` or unnamed files with cryptic UUID names
+- The ZIPs containing “main” and “overlay” layers that must be combined to look as they did originally
+- No timestamps, no location metadata, and no preservation of order
+
+Snapchat gives you _your data_, but not _your memories_, at least, not in a coherent form.
+
+### Enter the Backuper
+
+So I built a tool to fix that: [Snapchat Memories Backuper](https://github.com/filipsjolanderr/snapchat-memories-backuper), which is a Python‑based utility that automatically reconstructs, restores, and organizes your exported memories exactly as they appeared in‑app.
+
+It parses the exported HTML file from your Snapchat data request, downloads all files (32 parallel workers by default), detects file types, extracts layered ZIPs, merges overlays with images or videos, and writes back complete metadata (timestamps and GPS coordinates).
+
+Essentially:  
+**It turns a raw export into a usable photo/video archive.** Great, right? _Now you can move your memories to a local backup or another cloud._
+
+### Design Highlights
+
+- **Auto‑detection:** Pass either a folder with the already downloaded memories or the memories_history.html file, and the tool figures out the right mode.
+- **Parallelism:** 32 concurrent downloads by default, with configurable image/video workers for the combine process.
+- **Metadata writing:** Proper EXIF (for images) and MP4 metadata support (for videos).
+- **GPU acceleration:** Integrates NVENC, AMF, QSV, or VideoToolbox when available for making the combine process faster.
+
+### Technical Architecture
+
+The project embraces a service‑oriented structure:
+
+- `cli.py` → Entry point & argument parsing
+- `pipeline.py` → Task coordinator
+- `executors.py` → Services (ZIP extraction, renaming, combining)
+- `download.py` → Parallel download management
+- `metadata.py` → EXIF/MP4 metadata handling
+- `gpu.py` → Hardware encoder detection
+
+Each piece is modular and replaceable, useful if Snapchat changes its export format again (and they probably will).
+
+### The Bigger Picture
+
+When the platforms we trust start monetizing access to our memories, **data preservation becomes a form of personal autonomy**.
+
+As one user told the BBC:
+
+> These aren't just called Memories, these are our actual memories.
+
+That line stuck with me. Because it's true. These archives aren't disposable data dumps. They're snapshots of growing up online.
+
+Building a tool like this isn't just about code; it's about **ownership**. The right to hold, store, and organize our digital past without paying rent to a corporate server farm.
+
+### Enter Immich (and OneDrive)
+
+Once I had a clean, usable archive, I wanted a better long‑term home for it than a random folder sitting on my SSD.
+
+That’s where Immich comes in, an open‑source, self‑hosted photo and video library that behaves a lot like Google Photos, but entirely under your control. It offers timelines, albums, AI‑assisted search, and automatic device syncing, all while keeping your data private.
+
+I run Immich on my home server to keep everything in one place and accessible to my devices. It’s fast, privacy‑respecting, and genuinely fun to explore your memories in a timeline view that you host.
+
+But local storage alone isn’t enough.
+
+So, for redundancy, I also back everything up to OneDrive, since my family already has a large shared plan through my dad’s subscription. OneDrive acts as an encrypted off‑site copy, a second layer of protection against drive failures or accidents at home.
+
+The combination works perfectly:
+
+- Immich gives a modern, private front‑end experience for daily access.
+
+- OneDrive provides reliable cloud redundancy and simple sharing with family.
+
+### Final Thoughts
+
+Snap can charge for storage, that's its business.  
+But users deserve a clear path to take their data elsewhere.
+
+Snapchat Memories Backuper is that path.

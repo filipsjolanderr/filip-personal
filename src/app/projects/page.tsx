@@ -18,7 +18,15 @@ const projects: Project[] = [
     A web app for sharing your weekly meal planning with your team.
     `.trim(),
     accent: colors.blue,
-  }
+  },
+  {
+    name: "Snapchat Memories Backuper",
+    repo: "https://github.com/filipsjolanderr/snapchat-memories-backuper",
+    description: `
+    A tool for making a backup of your Snapchat Memories. 
+    `.trim(),
+    accent: colors.pink,
+  },
 ];
 
 export default function Projects() {
