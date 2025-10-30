@@ -52,18 +52,7 @@ Essentially:
 - **Metadata writing:** Proper EXIF (for images) and MP4 metadata support (for videos).
 - **GPU acceleration:** Integrates NVENC, AMF, QSV, or VideoToolbox when available for making the combine process faster.
 
-### Technical Architecture
-
-The project embraces a service‑oriented structure:
-
-- `cli.py` → Entry point & argument parsing
-- `pipeline.py` → Task coordinator
-- `executors.py` → Services (ZIP extraction, renaming, combining)
-- `download.py` → Parallel download management
-- `metadata.py` → EXIF/MP4 metadata handling
-- `gpu.py` → Hardware encoder detection
-
-Each piece is modular and replaceable, useful if Snapchat changes its export format again (and they probably will).
+Each component in the code is modular and replaceable, useful if Snapchat changes its export format again (and they probably will).
 
 ### The Bigger Picture
 
