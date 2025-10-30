@@ -763,7 +763,6 @@ const styles = stylex.create({
   citeLink: {
     color: colors.overlay1,
     textDecoration: 'none',
-    ':hover': { color: colors.blue, textDecoration: 'underline' },
   },
   strong: { color: colors.teal },
   em: { color: colors.peach },
