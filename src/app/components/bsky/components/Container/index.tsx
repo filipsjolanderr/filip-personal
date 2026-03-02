@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { bskyPost } from "../../theme.stylex";
-import { spacing } from "@/app/vars.stylex";
+import { spacing } from "../../../../vars.stylex";
 
 export type Container = PropsWithChildren<{
   href?: string;

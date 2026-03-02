@@ -1,0 +1,33 @@
+export const metadata = {
+  title: "YellowBox: Snapchat Memories Backuper v2",
+  date: "2026-03-02",
+  author: "Filip Sjölander",
+  published: true,
+  tags: ["website"],
+  description:
+    "YellowBox is a Tauri app (Rust + Svelte) that rebuilds my Snapchat Memories Backuper so it is easier to use and with a better UI.",
+};
+
+import { Container, Word } from "@/app/blog/SlabTitle";
+
+<Container path="/blog/2025-10-29-snapchat-memories-backuper">
+  <Word scale={183}>YellowBox:</Word>
+  <Word scale={218} italic>
+    {"Snapchat Memories"}
+  </Word>
+  <Word scale={195}>Backuper V2</Word>
+</Container>
+After shipping the [first version of Snapchat Memories Backuper](/blog/2025-10-29-snapchat-memories-backuper) in October 2025,
+
+I wanted something more approachable than a pile of scripts and a terminal window or a Streamlit application that is sketchy to download and run. 
+So I rebuilt it as **YellowBox**, a cross‑platform desktop app built with **Tauri (Rust) + Svelte**. You can download the latest release from [GitHub](https://github.com/filipsjolanderr/YellowBox/releases).
+
+Most of my time on this version went into making the UI feel as smooth and clear as possible, not into hunting down every last edge case, so you should still expect a few rough edges and bugs here and there.
+
+YellowBox still does the same heavy lifting as the original tool, but the flow is much simpler. You download your Snapchat export (`mydata~xxxx.zip`) once, point YellowBox at that ZIP, and it does the rest: detects file types, unpacks layered ZIPs when needed, merges overlays with images and videos, and restores timestamps and GPS coordinates from the JSON Snapchat now ships alongside the media.
+
+Snapchat also changed how exports work: images and videos are now included directly in the ZIP instead of being exposed only as links in `memories_history.html`. YellowBox still falls back on the old "download from HTML", but for most users, dropping in the ZIP is all it takes.
+
+The difference is that now it’s wrapped in a fast, native‑feeling UI. Instead of wrestling with command‑line flags, you open YellowBox, select your export, hit go, and watch it turn a raw dump into a clean, browsable photo and video archive.
+
+Once the archive is rebuilt, it’s just images and videos again, which means you can finally keep your memories **where you want them**. You can leave them on your computer, sync them to whatever cloud provider you already pay for, or do what I prefer: upload that folder into an [Immich](https://immich.app/) instance and get a self‑hosted, Google‑Photos‑style experience that lives on your own hardware.
