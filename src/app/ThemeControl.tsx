@@ -2,7 +2,9 @@
 
 import * as stylex from "@stylexjs/stylex";
 import { colors, spacing } from "./vars.stylex";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const STORAGE_KEY = "theme";
 
 export default function ThemeControl({
   children,
@@ -12,6 +14,20 @@ export default function ThemeControl({
   style?: stylex.StyleXStyles;
 }>) {
   const [theme, setTheme] = useState<"light" | "system" | "dark">("system");
+
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY) as "light" | "system" | "dark" | null;
+    if (stored && ["light", "system", "dark"].includes(stored)) {
+      setTheme(stored);
+    } else {
+      document.documentElement.setAttribute("data-theme", "system");
+    }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+  }, [theme]);
 
   return (
     <body {...stylex.props(themes[theme], styles.container, style)}>

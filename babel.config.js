@@ -14,6 +14,7 @@ module.exports = {
         runtimeInjection: false,
         genConditionalClasses: true,
         treeshakeCompensation: true,
+        enableDebugDataProp: false,
         aliases: {
           "@/*": [path.join(__dirname, "src", "*")],
         },

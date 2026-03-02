@@ -17,8 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html {...stylex.props(styles.html)} lang="en"> 
+      <html {...stylex.props(styles.html)} lang="en" suppressHydrationWarning> 
         <head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="light"||t==="dark"?t:"system");})();`,
+            }}
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -68,7 +73,7 @@ const styles = stylex.create({
       default: "border-box",
       ":where(#\\#), *": "border-box",
     },
-    colorScheme: "light dark",
+    // color-scheme set via data-theme + app.css (avoids layout overwriting script)
     margin: {
       default: 0,
       ":where(#\\#), *": 0,

@@ -6,14 +6,24 @@ import { colors, fonts, spacing, text } from "../vars.stylex";
 type Project = {
   name: string;
   repo: string;
+  website?: string;
   description: string;
   accent: string;
 };
 
 const projects: Project[] = [
   {
+    name: "YellowBox",
+    repo: "https://github.com/filipsjolanderr/YellowBox",
+    description: `
+    A cross-platform desktop app (Tauri + Svelte) for backing up your Snapchat Memories with a native-feeling UI.
+    `.trim(),
+    accent: colors.yellow,
+  },
+  {
     name: "Matlåda?",
     repo: "https://github.com/filipsjolanderr/matlada",
+    website: "https://matlada.sjolander.dev",
     description: `
     A web app for sharing your weekly meal planning with your team.
     `.trim(),
@@ -26,6 +36,15 @@ const projects: Project[] = [
     A tool for making a backup of your Snapchat Memories. 
     `.trim(),
     accent: colors.pink,
+  },
+  {
+    name: "sjolander.dev",
+    repo: "https://github.com/filipsjolanderr/filip-personal",
+    website: "https://sjolander.dev",
+    description: `
+    This personal site: blog, projects, and whatever else ends up here.
+    `.trim(),
+    accent: colors.accent,
   },
 ];
 
@@ -43,20 +62,32 @@ export default function Projects() {
                 <div {...stylex.props(styles.titleRow)}>
                   <Link
                     {...stylex.props(styles.title)}
-                    href={proj.repo}
+                    href={proj.website ?? proj.repo}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {proj.name}
                   </Link>
-                  <a
-                    {...stylex.props(styles.repoLink)}
-                    href={proj.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    github ↗
-                  </a>
+                  <span {...stylex.props(styles.links)}>
+                    {proj.website && (
+                      <a
+                        {...stylex.props(styles.repoLink)}
+                        href={proj.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        website ↗
+                      </a>
+                    )}
+                    <a
+                      {...stylex.props(styles.repoLink)}
+                      href={proj.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      github ↗
+                    </a>
+                  </span>
                 </div>
                 <P xstyle={styles.desc}>{proj.description}</P>
               </div>
@@ -121,6 +152,10 @@ const styles = stylex.create({
     display: "flex",
     gap: spacing.sm,
     width: "100%",
+  },
+  links: {
+    display: "flex",
+    gap: spacing.sm,
   },
   title: {
     color: {
