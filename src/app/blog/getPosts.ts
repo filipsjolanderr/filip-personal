@@ -15,6 +15,7 @@ export type Config = {
   date?: string;
   published?: boolean;
   tags?: string[];
+  readTime?: number;
 };
 
 export const getBlogPosts = unstable_cache(async () => {
@@ -52,7 +53,17 @@ export const getBlogPosts = unstable_cache(async () => {
       return null;
     }
 
-    return { ...metadata, path: "/blog/" + blog };
+    // Estimate read time from the full file content
+    const plainText = file
+      .replace(/^export\s+const\s+\w+\s*=[^;]*;/gm, "") // strip export statements
+      .replace(/<[^>]+>/g, " ") // strip JSX tags
+      .replace(/```[\s\S]*?```/g, " ") // strip code blocks
+      .replace(/`[^`]*`/g, " ") // strip inline code
+      .replace(/import\s+.*?;/g, " "); // strip imports
+    const wordCount = plainText.trim().split(/\s+/).filter(Boolean).length;
+    const readTime = Math.max(1, Math.ceil(wordCount / 200));
+
+    return { ...metadata, path: "/blog/" + blog, readTime };
   });
   const maybePostsResolved = await Promise.all(blogsPathsAndTitles);
 

@@ -201,7 +201,7 @@ export function Word({
       ? italicWordScales[normalizedWord]
       : normalWordScales[normalizedWord]) ??
     100;
-  const height = 22;
+  const height = italic ? 30 : 22;
   return (
     <span
       {...stylex.props(styles.word(resolvedScale), xstyle)}
@@ -250,7 +250,7 @@ const styles = stylex.create({
     marginBottom: spacing.xxxxl,
     marginInline: "auto",
     maxWidth: "54rem",
-    rowGap: 8,
+    rowGap: spacing.xxxs,
     width: "100%",
   },
   containerInLink: {

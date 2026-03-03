@@ -21,7 +21,14 @@ export default async function Home() {
                   ? wrapTitleWithViewTransitionNames(post.title, post.path)
                   : ""}
               </Link>
-              <span {...stylex.props(styles.date)}>{post.date}</span>
+              <div {...stylex.props(styles.dateMeta)}>
+                <span {...stylex.props(styles.date)}>{post.date}</span>
+                {post.readTime != null && (
+                  <span {...stylex.props(styles.readTime)}>
+                    {post.readTime} min read
+                  </span>
+                )}
+              </div>
             </div>
             <P xstyle={styles.p}>{post.description}</P>
           </li>
@@ -130,10 +137,21 @@ const styles = stylex.create({
     gap: spacing.md,
     width: "100%",
   },
-  date: {
+  dateMeta: {
+    alignItems: "flex-end",
+    display: "flex",
+    flexDirection: "column",
     flexShrink: 0,
     fontFamily: fonts.mono,
+    gap: 2,
+  },
+  date: {
     opacity: 0.5,
+  },
+  readTime: {
+    fontSize: "0.8em",
+    fontWeight: 400,
+    opacity: 0.4,
   },
   p: {
     lineHeight: 1.2,
