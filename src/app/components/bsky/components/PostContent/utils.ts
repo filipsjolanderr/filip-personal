@@ -16,15 +16,15 @@ class RichTextSegment {
   ) {}
 
   get link(): FacetLink | undefined {
-    return this.facet?.features.find(isLink);
+    return this.facet?.features.find(isLink) as FacetLink | undefined;
   }
 
   get mention(): FacetMention | undefined {
-    return this.facet?.features.find(isMention);
+    return this.facet?.features.find(isMention) as FacetMention | undefined;
   }
 
   get tag(): FacetTag | undefined {
-    return this.facet?.features.find(isTag);
+    return this.facet?.features.find(isTag) as FacetTag | undefined;
   }
 }
 
