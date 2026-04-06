@@ -1,106 +1,21 @@
 import * as stylex from "@stylexjs/stylex";
 import { colors, spacing } from "../vars.stylex";
 import React from "react";
+import { prepareWithSegments, layoutWithLines } from "@chenglou/pretext";
+import path from "path";
 
-const normalWordScales: Record<string, number> = {
-  "2025": 70,
-  "4": 19,
-  a: 21,
-  apple: 90,
-  atomic: 110,
-  avoiding: 135,
-  awesome: 146,
-  "calc()": 95,
-  components: 202,
-  creating: 142,
-  css: 58,
-  "css-in-js": 145,
-  considered: 181,
-  convenient: 186,
-  detecting: 161,
-  division: 123,
-  "do?": 57,
-  dom: 65,
-  fixing: 94,
-  for: 56,
-  framework: 186,
-  getters: 128,
-  "gulp.js": 116,
-  "handlebars.js": 233,
-  harmful: 136,
-  hello: 89,
-  how: 69,
-  imperfect: 159,
-  is: 26,
-  it: 25,
-  magic: 94,
-  more: 82,
-  new: 67,
-  no: 41,
-  object: 112,
-  "object.create()": 245,
-  on: 41,
-  react: 84,
-  referential: 188,
-  replacing: 158,
-  revisiting: 156,
-  rust: 75,
-  safari: 99,
-  "sails.js": 123,
-  server: 99,
-  serving: 124,
-  setters: 126,
-  shadow: 129,
-  solution: 143,
-  stylex: 110,
-  support: 133,
-  swift: 90,
-  syntax: 116,
-  tailwind: 135,
-  the: 56,
-  "the many gotchas": 292,
-  there: 92,
-  "there!": 99,
-  thoughts: 157,
-  to: 38,
-  transparency: 231,
-  typescript: 175,
-  understand: 191,
-  use: 55,
-  using: 87,
-  web: 64,
-  "web worker": 193,
-  what: 85,
-  why: 69,
-  wishlist: 136,
-  with: 74.5,
-  you: 60,
-  v2: 46,
-  yellowbox: 175,
-  snapchat: 120,
-  memories: 109,
-  backuper: 140,
-};
+// Support Server-Side Canvas Measurement!
+if (typeof globalThis.OffscreenCanvas === "undefined") {
+  globalThis.OffscreenCanvas = require("@napi-rs/canvas").Canvas as any;
+}
 
-const italicWordScales: Record<string, number> = {
-  "&": 26,
-  and: 46,
-  best: 43,
-  do: 29,
-  either: 70,
-  enum: 60,
-  eval: 54,
-  for: 34,
-  in: 21,
-  is: 17,
-  "isn’t": 46,
-  "marketshare?": 154,
-  need: 44,
-  or: 26,
-  rscs: 59,
-  well: 50,
-  with: 48,
-};
+try {
+  const { GlobalFonts } = require("@napi-rs/canvas");
+  GlobalFonts.registerFromPath(path.join(process.cwd(), "src", "fonts", "Inter.ttf"), "Inter");
+  GlobalFonts.registerFromPath(path.join(process.cwd(), "src", "fonts", "LibreBaskerville.ttf"), "Libre Baskerville");
+} catch (e) {
+  console.warn("Failed to register pretext server fonts:", e);
+}
 
 export function Container({
   path,
@@ -123,8 +38,8 @@ export function Container({
     if (
       child != null &&
       typeof child === "object" &&
-      "type" in child &&
-      child.type === Word
+      "props" in child &&
+      typeof (child as any).props.children === "string"
     ) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let word = (child as any).props.children;
@@ -181,6 +96,7 @@ export function Container({
   }
   return el;
 }
+
 export function Word({
   children,
   scale,
@@ -194,14 +110,33 @@ export function Word({
   offset?: number;
   xstyle?: stylex.StyleXStyles;
 }>) {
-  const normalizedWord = children.toLowerCase().trim();
-  const resolvedScale =
-    scale ??
-    (italic
-      ? italicWordScales[normalizedWord]
-      : normalWordScales[normalizedWord]) ??
-    100;
+  let measuredScale = 0;
+
+  try {
+    const fontStr = italic
+      ? "italic lighter 29px 'Libre Baskerville', serif"
+      : "800 28px 'Inter', sans-serif";
+    
+    // Natively mimic CSS uppercase
+    const textToMeasure = italic ? children.trim() : children.trim().toUpperCase();
+    
+    const prepared = prepareWithSegments(textToMeasure, fontStr);
+    const { lines } = layoutWithLines(prepared, 99999, 30);
+    
+    if (lines.length > 0) {
+      measuredScale = lines[0].width;
+    }
+  } catch (e) {
+    console.warn("Server-side pretext measurement failed for:", children, e);
+    // Fallback if canvas crashes
+    measuredScale = children.trim().length * (italic ? 12 : 18);
+  }
+
+  const resolvedScale = scale ?? measuredScale;
+  
+  // A consistent 30/22 height restores perfect organic proportioning without injecting excessive whitespace below normal rows!
   const height = italic ? 30 : 22;
+  
   return (
     <span
       {...stylex.props(styles.word(resolvedScale), xstyle)}
@@ -242,7 +177,7 @@ const styles = stylex.create({
     viewTransitionName: name,
   }),
   container: {
-    alignItems: "center",
+    alignItems: "flex-start",
     columnGap: spacing.xs,
     display: "flex",
     flexWrap: "wrap",
@@ -272,6 +207,7 @@ const styles = stylex.create({
     minHeight: 32,
     minWidth: `${scale}px`,
     padding: 0,
+    transition: "flex-grow 0.4s ease-out, min-width 0.4s ease-out",
   }),
   wordInnerDiv: {
     alignItems: "flex-start",

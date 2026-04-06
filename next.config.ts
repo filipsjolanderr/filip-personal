@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   transpilePackages: ["bsky-react-post"],
-  // transpilePackages: ['@stylexjs/open-props'],
+  serverExternalPackages: ["@napi-rs/canvas"],
 };
 
 const withMDX = createMDX({});
