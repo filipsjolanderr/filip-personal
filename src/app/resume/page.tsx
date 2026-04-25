@@ -13,7 +13,7 @@ export default function ResumePage() {
   return (
     <div {...stylex.props(styles.container)}>
       <H1 xstyle={styles.title}>Résumé</H1>
-      
+
       <div {...stylex.props(styles.viewer)}>
         <ResumeViewer file="/media/filip_sjolander.pdf" />
       </div>
