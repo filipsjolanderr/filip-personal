@@ -38,7 +38,7 @@ const styles = stylex.create({
   }
 });
 
-export default function ResumeViewer({ file }: { file: string }) {
+export default function CVViewer({ file }: { file: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [numPages, setNumPages] = useState<number>();
   const [width, setWidth] = useState<number>(800);

@@ -2,20 +2,20 @@ import React from "react";
 import * as stylex from "@stylexjs/stylex";
 import { H1 } from "../../mdx-components";
 import { colors, fonts, spacing, text } from "../vars.stylex";
-import ResumeViewer from "./ResumeViewerWrapper";
+import CVViewer from "./CVViewerWrapper";
 
 export const metadata = {
-  title: "Résumé",
-  description: "Résumé of Filip Sjölander",
+  title: "CV",
+  description: "CV of Filip Sjölander",
 };
 
-export default function ResumePage() {
+export default function CVPage() {
   return (
     <div {...stylex.props(styles.container)}>
-      <H1 xstyle={styles.title}>Résumé</H1>
+      <H1 xstyle={styles.title}>CV</H1>
 
       <div {...stylex.props(styles.viewer)}>
-        <ResumeViewer file="/media/filip_sjolander.pdf" />
+        <CVViewer file="/media/filip_sjolander.pdf" />
       </div>
 
       <div {...stylex.props(styles.actions)}>

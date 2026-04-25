@@ -12,7 +12,7 @@ export function Nav() {
       <Link {...stylex.props(styles.navLink)} href="/projects">
         Projects
       </Link>
-      <Link {...stylex.props(styles.navLink)} href="/resume">
+      <Link {...stylex.props(styles.navLink)} href="/cv">
         Résumé
       </Link>
     </nav>

@@ -31,8 +31,8 @@ export default function Home() {
           <Link {...stylex.props(styles.navLink)} href="/projects">
             Projects
           </Link>
-          <Link {...stylex.props(styles.navLink)} href="/resume">
-            Resume
+          <Link {...stylex.props(styles.navLink)} href="/cv">
+            CV
           </Link>
         </nav>
       </header>

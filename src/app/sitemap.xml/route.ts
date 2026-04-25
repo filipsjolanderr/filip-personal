@@ -32,7 +32,7 @@ export async function GET() {
       priority: 0.9,
     },
     {
-      url: "https://sjolander.dev/resume",
+      url: "https://sjolander.dev/cv",
       lastModified: new Date().toISOString(),
       changeFrequency: "yearly",
       priority: 0.8,

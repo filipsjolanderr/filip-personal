@@ -2,10 +2,10 @@
 
 import dynamic from "next/dynamic";
 
-const ResumeViewer = dynamic(() => import("./ResumeViewer"), {
+const CVViewer = dynamic(() => import("./CVViewer"), {
   ssr: false,
 });
 
-export default function ResumeViewerWrapper({ file }: { file: string }) {
-  return <ResumeViewer file={file} />;
+export default function CVViewerWrapper({ file }: { file: string }) {
+  return <CVViewer file={file} />;
 }
