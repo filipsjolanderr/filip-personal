@@ -6,8 +6,8 @@ import { Link } from "next-view-transitions";
 import Nav from "../components/Nav";
 
 export const metadata: Metadata = {
-  title: "Resume | Filip Sjölander",
-  description: "Resume of Filip Sjölander",
+  title: "Résumé | Filip Sjölander",
+  description: "Résumé of Filip Sjölander",
 };
 
 export default function RootLayout({

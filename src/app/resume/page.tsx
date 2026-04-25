@@ -1,21 +1,27 @@
+import React from "react";
 import * as stylex from "@stylexjs/stylex";
 import { H1 } from "../../mdx-components";
 import { colors, fonts, spacing, text } from "../vars.stylex";
+import ResumeViewer from "./ResumeViewerWrapper";
+
+export const metadata = {
+  title: "Résumé",
+  description: "Résumé of Filip Sjölander",
+};
 
 export default function ResumePage() {
   return (
     <div {...stylex.props(styles.container)}>
-      <H1 xstyle={styles.title}>Resume</H1>
+      <H1 xstyle={styles.title}>Résumé</H1>
+      
       <div {...stylex.props(styles.viewer)}>
-        <object data="media/filip_sjolander.pdf" type="application/pdf" width="100%" height="100%">
-          <iframe src="media/filip_sjolander.pdf" title="Resume PDF" width="100%" height="100%" />
-        </object>
+        <ResumeViewer file="/media/filip_sjolander.pdf" />
       </div>
+
       <div {...stylex.props(styles.actions)}>
-        <a href="media/filip_sjolander.pdf" download {...stylex.props(styles.downloadLink)}>
-          Download PDF
+        <a href="/media/filip_sjolander.pdf" download {...stylex.props(styles.downloadLink)}>
+          Download as PDF
         </a>
-        <span {...stylex.props(styles.note)}>If the PDF doesn&apos;t load, use the link above.</span>
       </div>
     </div>
   );
@@ -24,48 +30,50 @@ export default function ResumePage() {
 const styles = stylex.create({
   container: {
     marginInline: "auto",
-    maxWidth: "min(80rem, 100%)",
+    maxWidth: "min(65rem, 100%)",
+    paddingBottom: spacing.xxxl,
+    fontFamily: fonts.sans,
+    color: colors.fg,
   },
   title: {
-    marginBottom: spacing.md,
+    marginBottom: spacing.xxl,
     textAlign: "center",
     textWrap: "balance",
+    fontSize: text.h1,
+    letterSpacing: "-0.02em",
   },
   viewer: {
     marginInline: "auto",
-    backgroundColor: colors.surface0,
-    borderColor: `color-mix(in oklch, ${colors.fg}, transparent 75%)`,
-    borderRadius: 12,
-    borderStyle: "solid",
-    borderWidth: 1,
-    height: {
-      default: "100vh",
-      "@media (max-width: 768px)": "75vh",
-    },
-    overflow: "hidden",
-    width: "80%",
+    width: "100%",
+    marginBottom: spacing.xxxl,
   },
   actions: {
-    alignItems: "center",
     display: "flex",
-    flexWrap: "wrap",
-    gap: spacing.sm,
     justifyContent: "center",
-    marginTop: spacing.sm,
+    marginTop: spacing.xl,
+    paddingTop: spacing.lg,
+    borderTopWidth: 1,
+    borderTopStyle: "solid",
+    borderTopColor: `color-mix(in oklch, ${colors.fg}, transparent 85%)`,
   },
   downloadLink: {
-    backgroundColor: colors.accent,
+    backgroundColor: colors.surface0,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: `color-mix(in oklch, ${colors.fg}, transparent 75%)`,
     borderRadius: 8,
-    color: colors.bg,
+    color: colors.fg,
     fontFamily: fonts.sans,
     fontSize: text.sm,
     fontWeight: 600,
-    paddingBlock: spacing.xs,
-    paddingInline: spacing.md,
+    paddingBlock: spacing.sm,
+    paddingInline: spacing.lg,
     textDecoration: "none",
-  },
-  note: {
-    color: colors.overlay1,
-    fontSize: text.xs,
+    transition: "all 0.2s ease",
+    ":hover": {
+      backgroundColor: colors.accent,
+      color: colors.bg,
+      borderColor: colors.accent,
+    }
   },
 });

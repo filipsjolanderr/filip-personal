@@ -13,7 +13,7 @@ export function Nav() {
         Projects
       </Link>
       <Link {...stylex.props(styles.navLink)} href="/resume">
-        Resume
+        Résumé
       </Link>
     </nav>
   );

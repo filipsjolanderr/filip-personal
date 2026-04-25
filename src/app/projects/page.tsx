@@ -16,7 +16,7 @@ const projects: Project[] = [
     name: "YellowBox",
     repo: "https://github.com/filipsjolanderr/YellowBox",
     description: `
-    A cross-platform desktop app (Tauri + Svelte) for backing up your Snapchat Memories with a native-feeling UI.
+    A cross-platform desktop app (Tauri + Svelte) for backing up your Snapchat Memories with a native UI.
     `.trim(),
     accent: colors.yellow,
   },

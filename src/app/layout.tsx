@@ -6,8 +6,36 @@ import "./app.css";
 import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
-  title: "Filip Sjölander",
-  description: "Personal website and blog of Filip Sjölander.",
+  metadataBase: new URL("https://sjolander.dev"),
+  title: {
+    default: "Filip Sjölander",
+    template: "%s | Filip Sjölander",
+  },
+  description: "Personal website, portfolio, and blog of Filip Sjölander, Software Engineer.",
+  keywords: ["Filip Sjölander", "Filip", "Sjölander", "Software Engineer", "Developer", "Gothenburg", "Portfolio", "Blog"],
+  creator: "Filip Sjölander",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://sjolander.dev",
+    siteName: "Filip Sjölander",
+    title: "Filip Sjölander",
+    description: "Personal website, portfolio, and blog of Filip Sjölander.",
+    images: [
+      {
+        url: "/apple-touch-icon.png",
+        width: 180,
+        height: 180,
+        alt: "Filip Sjölander Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Filip Sjölander",
+    description: "Personal website, portfolio, and blog of Filip Sjölander.",
+    images: ["/apple-touch-icon.png"],
+  },
 };
 
 export default function RootLayout({
