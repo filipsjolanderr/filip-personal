@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import { Link } from "next-view-transitions";
-import { H1, P } from "../../mdx-components";
+import { H1, P } from "@/mdx-components";
 import { colors, fonts, spacing, text } from "../vars.stylex";
 
 type Project = {

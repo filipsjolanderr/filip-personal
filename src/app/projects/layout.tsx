@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import * as stylex from "@stylexjs/stylex";
 import { spacing } from "../vars.stylex";
-import Logo from "../Logo";
+import Logo from "@/components/Logo";
 import { Link } from "next-view-transitions";
-import Nav from "../components/Nav";
+import Nav from "@/components/Nav";
 
 export const metadata: Metadata = {
   title: "Projects | Filip Sjölander",

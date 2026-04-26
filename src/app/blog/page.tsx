@@ -1,9 +1,9 @@
 import * as stylex from "@stylexjs/stylex";
 import { Link } from "next-view-transitions";
 import React from "react";
-import { H1, P, Ul } from "../../mdx-components";
+import { H1, P, Ul } from "@/mdx-components";
 import { colors, fonts, spacing, text } from "../vars.stylex";
-import { getBlogPosts } from "./getPosts";
+import { getBlogPosts } from "@/lib/blog";
 
 export default async function Home() {
   const posts = await getBlogPosts();

@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import Logo from "./Logo";
+import Logo from "@/components/Logo";
 import { Link } from "next-view-transitions";
 import { spacing } from "./vars.stylex";
 

@@ -1,10 +1,10 @@
 import { Feed } from "feed";
-import { getBlogPosts } from "./getPosts";
+import { getBlogPosts } from "./blog";
 
 export async function getFeed() {
   const siteURL = "https://sjolander.dev";
   const feedOptions = {
-    title: "nmn.sh",
+    title: "sjolander.dev",
     language: "en",
     id: siteURL,
     link: siteURL,
@@ -12,7 +12,7 @@ export async function getFeed() {
     // image: `${siteURL}/og.png`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Filip Sjölander`,
     author: {
-      name: "Naman Goel",
+      name: "Filip Sjölander",
       link: `${siteURL}/blog`,
     },
   };

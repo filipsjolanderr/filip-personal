@@ -1,4 +1,4 @@
-import { getFeed } from "../getFeed";
+import { getFeed } from "@/lib/feed";
 
 export const GET = async function get() {
   let feed;

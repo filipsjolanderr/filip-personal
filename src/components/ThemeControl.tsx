@@ -1,7 +1,7 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
-import { colors, spacing } from "./vars.stylex";
+import { colors, spacing } from "../app/vars.stylex";
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "theme";

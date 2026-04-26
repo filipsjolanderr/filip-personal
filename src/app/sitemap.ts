@@ -1,12 +1,14 @@
 import { MetadataRoute } from 'next'
-import { getBlogPosts } from './blog/getPosts'
+import { getBlogPosts } from '../lib/blog'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getBlogPosts()
 
   const blogUrls = posts.map((post) => ({
     url: `https://sjolander.dev${post.path}`,
-    lastModified: post.date ? new Date(post.date) : new Date(),
+    lastModified: post.date
+      ? new Date(post.date)
+      : new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
