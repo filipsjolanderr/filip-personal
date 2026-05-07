@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+build
+.git
+.gitignore
+docker-compose.yml
+Dockerfile
+.dockerignore
+README.md
+bun.lock

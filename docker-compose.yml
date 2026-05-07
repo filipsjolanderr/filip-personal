@@ -1,0 +1,14 @@
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sjolander-dev
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    # Optional: if you have environment variables, you can link an .env file
+    # env_file:
+    #   - .env
