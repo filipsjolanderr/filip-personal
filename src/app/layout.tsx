@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sjolander.dev"),
   title: {
     default: "Filip Sjölander",
-    template: "%s | Filip Sjölander",
+    template: "",
   },
   description: "Personal website, portfolio, and blog of Filip Sjölander, Software Engineer.",
   keywords: ["Filip Sjölander", "Filip", "Sjölander", "Software Engineer", "Developer", "Gothenburg", "Portfolio", "Blog"],
