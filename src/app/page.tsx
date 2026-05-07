@@ -1,11 +1,27 @@
 import * as stylex from "@stylexjs/stylex";
-import Logo from "./Logo";
+import Logo from "@/components/Logo";
 import { Link } from "next-view-transitions";
 import { spacing } from "./vars.stylex";
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Filip Sjölander",
+    url: "https://sjolander.dev",
+    jobTitle: "Software Engineer",
+    sameAs: [
+      "https://github.com/filipsjolanderr",
+      "https://www.linkedin.com/in/filip-sjolander/"
+    ]
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header {...stylex.props(styles.header)}>
         <Logo style={styles.logo} src="/logo-expanded-2.svg" />
         <nav {...stylex.props(styles.nav)}>
@@ -15,8 +31,8 @@ export default function Home() {
           <Link {...stylex.props(styles.navLink)} href="/projects">
             Projects
           </Link>
-          <Link {...stylex.props(styles.navLink)} href="/resume">
-            Resume
+          <Link {...stylex.props(styles.navLink)} href="/cv">
+            CV
           </Link>
         </nav>
       </header>

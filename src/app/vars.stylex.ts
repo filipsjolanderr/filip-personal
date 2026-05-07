@@ -35,34 +35,9 @@ export const colors = stylex.defineVars({
 });
 
 export const fonts = stylex.defineVars({
-  sans: [
-    "system-ui",
-    "-apple-system",
-    "BlinkMacSystemFont",
-    "'Segoe UI'",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "'Open Sans'",
-    "'Helvetica Neue'",
-    "sans-serif",
-  ].join(", "),
-  mono: [
-    "ui-monospace",
-    "Menlo",
-    "Monaco",
-    '"Cascadia Mono"',
-    '"Segoe UI Mono"',
-    '"Roboto Mono"',
-    '"Oxygen Mono"',
-    '"Ubuntu Monospace"',
-    '"Source Code Pro"',
-    '"Fira Mono"',
-    '"Droid Sans Mono"',
-    '"Courier New"',
-    "monospace",
-  ].join(", "),
+  sans: "var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+  serif: "var(--font-baskerville), serif",
+  mono: 'var(--font-mono), ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace',
 });
 
 /**

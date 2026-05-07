@@ -1,9 +1,9 @@
 import * as stylex from "@stylexjs/stylex";
 import { Link } from "next-view-transitions";
 import { headers } from "next/headers";
-import { P } from "../../../mdx-components";
+import { P } from "@/mdx-components";
 import { fonts, spacing } from "../../vars.stylex";
-import { getBlogPosts } from "../getPosts";
+import { getBlogPosts } from "@/lib/blog";
 
 export default async function RootLayout({
   children,

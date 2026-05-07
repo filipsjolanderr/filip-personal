@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { colors, spacing } from "../vars.stylex";
+import { colors, spacing } from "../app/vars.stylex";
 import React from "react";
 import { prepareWithSegments, layoutWithLines } from "@chenglou/pretext";
 import path from "path";

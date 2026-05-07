@@ -1,7 +1,7 @@
 import React from "react";
 import * as stylex from "@stylexjs/stylex";
 import { Link } from "next-view-transitions";
-import { spacing } from "../vars.stylex";
+import { spacing } from "../app/vars.stylex";
 
 export function Nav() {
   return (
@@ -12,8 +12,8 @@ export function Nav() {
       <Link {...stylex.props(styles.navLink)} href="/projects">
         Projects
       </Link>
-      <Link {...stylex.props(styles.navLink)} href="/resume">
-        Resume
+      <Link {...stylex.props(styles.navLink)} href="/cv">
+        CV
       </Link>
     </nav>
   );

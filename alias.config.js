@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   alias: {
-    "@": path.resolve(__dirname, "source"),
+    "@": path.resolve(__dirname, "src"),
   },
   extensions: [".js", ".ts", ".jsx", ".tsx"],
 };
